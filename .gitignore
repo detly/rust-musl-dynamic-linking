@@ -1,4 +1,5 @@
-/target
+# macOS
+.DS_Store
 
-openssl
-openssl-dist
+# Cargo
+/target/
