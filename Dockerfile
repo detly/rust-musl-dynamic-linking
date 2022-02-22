@@ -5,6 +5,6 @@ ENV PATH="/root/.cargo/bin:${PATH}"
 ADD . .
 RUN cargo build --release
 RUN file /bin/busybox
-RUN file target/release/rust-musl
+RUN file ./target/release/rust-musl
 RUN ldd /bin/busybox
-RUN ldd target/release/rust-musl
+RUN ldd ./target/release/rust-musl
