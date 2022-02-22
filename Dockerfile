@@ -8,3 +8,4 @@ RUN file /bin/busybox
 RUN file ./target/release/rust-musl-dynamic-linking
 RUN ldd /bin/busybox
 RUN ldd ./target/release/rust-musl-dynamic-linking
+RUN ./target/release/rust-musl-dynamic-linking
