@@ -53,7 +53,7 @@ jobs:
       - name: Run check
         run: cargo test
 
-  build:
+  build-x86:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -61,3 +61,21 @@ jobs:
 
       - name: Build Docker image
         run: docker build . --progress=plain
+
+  build-aarch64:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          platforms: linux/arm64
